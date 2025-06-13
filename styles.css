@@ -1,0 +1,805 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: rgb(42, 41, 53);
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+header {
+  margin-top: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(30px);
+  z-index: 2000;
+}
+.logo {
+  font-size: 45px;
+  color: #8e44ad;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+
+nav a {
+  font-size: 20px;
+  color: white;
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+nav a:hover,
+nav a.active {
+  color: #8e44ad;
+  border-bottom: 3px solid #8e44ad;
+}
+.hero-content {
+  padding: 170px 50px 50px 30px;
+}
+
+.hero-content h1 {
+  font-size: 3.2em;
+  margin-bottom: 10px;
+}
+
+.hero-content h1 span {
+  color: #8e44ad;
+}
+
+.hero-content h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.hero-content h2 span {
+  color: #8e44ad;
+}
+
+.hero-content p {
+  color: #aea5a5;
+  font-size: 1em;
+  line-height: 2em;
+  margin-bottom: 10px;
+}
+header .fa-bars {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/*----------------DashBoard CSS Starts--------------  */
+.dashs {
+  padding-top: 2rem;
+}
+.dash {
+  display: flex;
+  justify-content: center;
+  font-size: 48px;
+}
+.dash-abi {
+  color: #8e44ad;
+  position: relative;
+  bottom: 12px;
+  left: 15px;
+}
+.dash-content {
+  padding-top: 100px;
+}
+.dashcontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.dashno {
+  display: flex;
+  justify-content: center;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #2a0d2e;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 300px;
+}
+.box:hover {
+  transform: translateY(-12px);
+  transform: scale3d(1.03);
+  box-shadow: 0 0 40px #8e44ad;
+}
+.boxname {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/*----------------DashBoard CSS Ends--------------  */
+
+/*-----------------Editor CSS starts ---------------*/
+.editor {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  padding-bottom: 300px;
+  padding-top: 10rem;
+}
+.edi {
+  display: flex;
+  justify-content: center;
+  font-size: 48px;
+}
+.edi-head {
+  position: relative;
+  bottom: 11px;
+  left: 20px;
+}
+.descedi {
+  font-size: 1.5em;
+  margin: 0 auto;
+  max-width: 1800px;
+  line-height: 1.8;
+  color: #f3d1fa;
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+.edi-abi {
+  color: #8e44ad;
+  position: relative;
+  font-size: 1em;
+  left: 12px;
+}
+
+#editorcontainer {
+  background-color: #181a1b;
+  width: 80vw;
+  padding: 50px 30px;
+  transform: translate(-50%, -50%);
+  max-width: 1500px;
+  position: relative;
+  left: 50%;
+  top: 400px;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+}
+
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 15px;
+}
+.editor-toolbar i {
+  font-size: larger;
+}
+.tool {
+  height: 30px;
+  width: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 3px;
+  border: none;
+  background-color: #181a1b;
+  outline: none;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.tool:hover {
+  background-color: #8e44ad;
+  cursor: pointer;
+}
+
+#editor-content {
+  text-align: left;
+  margin-top: 10px;
+  border: 1px solid #555;
+  padding: 20px;
+  height: 50vh;
+  overflow-y: auto;
+  font-size: 1.2rem;
+  text-decoration: inherit;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+#editor-content:empty::before {
+  content: "Start typing your content here...";
+  color: #aaa;
+  font-style: italic;
+  pointer-events: none;
+}
+
+#editor-content h1 {
+  font-size: 2em;
+}
+
+#editor-content h2 {
+  font-size: 2.2em;
+}
+
+#editor-content h3 {
+  font-size: 2.3em;
+}
+
+#editor-content h4 {
+  font-size: 2.4em;
+}
+#editor-text {
+  height: 50vh;
+  width: 100%;
+  font-size: 1.3rem;
+  overflow-y: auto;
+  border: none;
+  resize: none;
+  border-radius: 10px;
+  background: none;
+  outline: none;
+}
+.title {
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #181a1b;
+  border: 1px solid #555;
+  border-radius: 5px;
+  box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+  height: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.title:empty::before {
+  content: "Enter Your Blog Title";
+  color: #aaa;
+  font-style: italic;
+  pointer-events: none;
+}
+.publish,
+.draft {
+  margin-bottom: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  width: auto;
+  background-color: #8e44ad;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.publish {
+  font-size: large;
+  background-color: #8e44ad;
+}
+
+.draft {
+  font-size: large;
+  background-color: #19c739;
+  margin-left: 5px;
+}
+
+.publish:hover {
+  background-color: #6c2689;
+}
+
+.draft:hover {
+  background-color: rgb(18, 121, 59);
+}
+.yourblog {
+  padding-top: 150px;
+  font-size: 30px;
+  color: #ffff;
+}
+#outer-blog-container {
+  background: none;
+  width: 80vw;
+  padding: 15px;
+  transform: translate(-50%, -50%);
+  max-width: 1500px;
+  position: relative;
+  left: 50%;
+  top: 350px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+  overflow: auto;
+  white-space: nowrap;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+#blog-container {
+  margin-top: 10px;
+  display: inline-flex;
+  gap: 10px;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: #3f1645;
+  margin: 5px 0;
+  padding: 20px;
+  border-radius: 8px;
+  justify-content: space-between;
+  height: 350px;
+  width: 350px;
+  margin: 10px;
+  max-width: 100%;
+  overflow: auto;
+  word-wrap: break-word;
+  white-space: normal;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+}
+.blog-card:hover {
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #8e44ad;
+}
+.blog-card h3 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.blog-card p {
+  font-size: 1.5rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+}
+.blog-card .date {
+  margin-top: 8px;
+  padding-right: 50px;
+  font-size: 1.2rem;
+  color: #777;
+  font-style: italic;
+}
+
+.removedraft {
+  background-color: #ee486c;
+}
+.removedraft:hover {
+  background-color: #9a1632;
+}
+/*----------------------Editor CSS Ends--------------------- */
+
+/* ---------------------- Notes CSS Starts -----------------------*/
+.Notes {
+  padding-top: 200px;
+}
+.descnotes {
+  font-size: 1.5em;
+  margin: 0 auto;
+  max-width: 1800px;
+  line-height: 1.8;
+  color: #f3d1fa;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.Bigcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container {
+  background-color: #181a1b;
+  border-radius: 8px;
+  box-shadow: 0px 10px 15px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 1300px;
+  height: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+  padding-bottom: 50px;
+}
+
+.add {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border: 3px solid black;
+  border-radius: 8px;
+  height: 200px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add:hover {
+  transition: 0.25s;
+  background-color: #8e44ad;
+}
+
+.add i {
+  font-size: 80px;
+  color: gainsboro;
+  position: relative;
+  right: 55px;
+  z-index: 0.2;
+}
+.adddesc {
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  position: relative;
+  right: 25px;
+  color: rgb(183, 179, 179);
+}
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.input-box {
+  position: relative;
+  background: #692a84;
+  margin: 5px 0;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 300px;
+  width: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.input-box:focus-within {
+  outline: none;
+}
+.delete,
+.save {
+  background-color: #c6aaff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  width: auto;
+  position: absolute;
+}
+
+.delete {
+  background-color: #ee486c;
+  bottom: 12px;
+  right: 12px;
+}
+
+.save {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #19c739;
+  bottom: 10px;
+  right: 60px;
+}
+
+.delete:hover {
+  background-color: #d32148;
+}
+
+.save:hover {
+  background-color: rgb(23, 151, 74);
+}
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #020929;
+  font-size: 18px;
+  color: white;
+  width: 220px;
+  height: 180px;
+  margin: 10px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
+  border-radius: 4px;
+  border: 2px solid #8c53ff;
+  resize: none;
+  overflow-y: auto;
+}
+
+/* ---------------Contact CSS Starts --------------*/
+.contact {
+  padding: 50px 50px 0 6rem;
+  padding-top: 15rem;
+  max-height: 1800px;
+}
+.contactme {
+  display: flex;
+  justify-content: center;
+  font-size: 48px;
+}
+.ContactForm p {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin: 0 auto;
+  max-width: 1800px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+.Form {
+  display: flex;
+  justify-content: center;
+}
+.form-box {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  border-radius: 8px;
+  height: 50px;
+  width: 32rem;
+  padding: 10px;
+  margin-bottom: 20px;
+  background: #262626;
+  color: #ffff;
+  font-size: 15px;
+}
+::placeholder {
+  color: white;
+}
+.submit {
+  font-size: 15px;
+  padding: 18px;
+  font-family: sans-serif;
+  border-radius: 8px;
+}
+.submit:hover {
+  cursor: pointer;
+  background-color: #8e44ad;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  width: 500px;
+  bottom: 480px;
+  right: 30px;
+}
+.emailid {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.phone {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.phoneicon {
+  font-size: 30px;
+}
+.telegram {
+  font-size: 35px;
+}
+
+.contact-icons a i {
+  font-size: 30px;
+  color: gray;
+  padding: 10px;
+}
+.up {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 300px;
+}
+.up-box {
+  font-size: 45px;
+  width: 100px;
+  border: 2px solid white;
+  border-radius: 100%;
+  background: #8e44ad;
+  padding: 18px;
+}
+.up-box:hover {
+  background-color: #6c2689;
+}
+.up-icon {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.greetings {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 100px;
+}
+/*-------------------Contact CSS Ends */
+header .fa-bars {
+  display: none;
+}
+@media only screen and (max-width: 650px) {
+  header .fa-bars {
+    display: block;
+    font-size: 38px;
+    color: #b74b4b;
+  }
+  #sidemenu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 200px;
+    height: 100vh;
+    padding-top: 50px;
+    margin: 25px;
+    z-index: 2;
+    background-color: #181a1b;
+  }
+  header .fa-bars {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+  }
+
+  #sidemenu.show {
+    right: 0;
+  }
+  nav.active {
+    display: block;
+  }
+  nav a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+  }
+  nav a:hover,
+  nav a.active {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-bottom: 0.5rem solid #8e44ad;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 150px 20px 20px;
+  }
+  #editorcontainer {
+    width: 95vw;
+    padding: 30px 15px;
+    top: 400px;
+  }
+  .tool {
+    height: 40px;
+    width: 40px;
+  }
+  #editor-content {
+    font-size: 1rem;
+    height: 40vh;
+  }
+  .blog-card .date {
+    font-size: 0.7rem;
+  }
+  .title {
+    font-size: 20px;
+    height: auto;
+  }
+
+  .blog-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .yourblog {
+    font-size: 24px;
+    margin-top: 50px;
+  }
+  #outer-blog-container {
+    margin-top: 15px;
+  }
+  .Notes {
+    padding-top: 110px;
+  }
+  .contact {
+    position: relative;
+    top: 150px;
+  }
+  .contactme {
+    position: relative;
+    right: 20px;
+    font-size: 44px;
+  }
+  .greetings {
+    position: relative;
+    top: 50px;
+  }
+  .up {
+    display: none;
+  }
+  .form-box {
+    width: 20rem;
+  }
+  .contact-icons {
+    display: block;
+  }
+  .emailid,
+  .phone {
+    position: relative;
+    top: 550px;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .contact-icons {
+    position: relative;
+    top: 550px;
+  }
+  .greetings {
+    margin-top: 80px;
+  }
+  .form {
+    position: relative;
+    right: 10px;
+  }
+  .dash {
+    font-size: 45px;
+  }
+  #container {
+    width: 1000px;
+    padding: 0 20px 0 20px;
+  }
+}

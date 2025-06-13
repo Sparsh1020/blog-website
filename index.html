@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogify</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header style="margin-top: 0">
+      <a href="#" class="logo">Blogify</a>
+      <nav id="sidemenu">
+        <a href="#Welcomeblog" class="nav-link">Home</a>
+        <a href="#editor" class="nav-link">Editor</a>
+        <a href="#Noteid" class="nav-link">Note</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <i
+        class="fa-solid fa-bars"
+        onclick="toggleMenu()"
+        style="color: #8e44ad"
+      ></i>
+    </header>
+    <main>
+      <div class="hero-content" id="Welcomeblog">
+        <h1>Welcome to <span>Blogify</span></h1>
+        <h2>Create | Manage | Organize</h2>
+        <p>
+          Blogify is your one-stop platform for creating, managing, and
+          organizing blog content effortlessly. Whether you're a seasoned writer
+          or just starting your blogging journey, Blogify provide the tools you
+          need to bring your ideas to life. Jot down notes, save drafts, and
+          craft stunning posts with our lightweight text editor. Let your
+          creativity shine and connect with readers like never before!
+        </p>
+      </div>
+
+      <!-- -------------------- DashBoard HTML Starts --------------- -->
+
+      <section class="dashs" id="dashs">
+        <h2 class="dash">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span class="dash-abi">DashBoard</span>
+        </h2>
+        <div class="dash-content">
+          <div class="dashcontainer">
+            <div class="box">
+              <div class="info">
+                <h2 class="dashno blogno">0</h2>
+                <span class="boxname">Blog Published</span>
+              </div>
+            </div>
+            <div class="box">
+              <div class="info">
+                <h2 class="dashno draftno">0</h2>
+                <span class="boxname">Drafts</span>
+              </div>
+            </div>
+            <div class="box">
+              <div class="info">
+                <h2 class="dashno noteno">0</h2>
+                <span class="boxname">Notes Saved</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------- DashBoard HTML Ends --------------- -->
+
+      <!-- -------------------Rich Text Editor HTML Starts --------------- -->
+
+      <section class="editor" id="editor">
+        <h2 class="edi">
+          <i class="fa-solid fa-pencil"></i>
+          <span class="edi-head">Text <span class="edi-abi">Editor</span></span>
+        </h2>
+
+        <p class="descedi" style="color: white">Create Your Blog</p>
+
+        <div id="editorcontainer">
+          <div class="editor-toolbar">
+            <button class="tool" onclick="formatText('bold')">
+              <i class="fas fa-bold"></i>
+            </button>
+            <button class="tool" onclick="formatText('italic')">
+              <i class="fas fa-italic"></i>
+            </button>
+            <button class="tool" onclick="formatText('underline')">
+              <i class="fas fa-underline"></i>
+            </button>
+
+            <!-- Heading -->
+            <button
+              class="tool"
+              onclick="insertHeading('h1')"
+              style="font-size: larger"
+            >
+              H1
+            </button>
+            <button
+              class="tool"
+              onclick="insertHeading('h2')"
+              style="font-size: larger"
+            >
+              H2
+            </button>
+            <button
+              class="tool"
+              onclick="insertHeading('h3')"
+              style="font-size: larger"
+            >
+              H3
+            </button>
+            <button
+              class="tool"
+              onclick="insertHeading('h4')"
+              style="font-size: larger"
+            >
+              H4
+            </button>
+
+            <!-- List -->
+            <button class="tool" onclick="formatText('insertUnorderedList')">
+              <i class="fas fa-list-ul"></i>
+            </button>
+            <button class="tool" onclick="formatText('insertOrderedList')">
+              <i class="fas fa-list-ol"></i>
+            </button>
+
+            <!-- Alignment -->
+            <button id="justifyLeft" class="option-button tool">
+              <i class="fa-solid fa-align-left"></i>
+            </button>
+            <button id="justifyCenter" class="option-button tool">
+              <i class="fa-solid fa-align-center"></i>
+            </button>
+            <button id="justifyRight" class="option-button tool">
+              <i class="fa-solid fa-align-right"></i>
+            </button>
+            <div class="Blogbtn">
+              <button class="publish" onclick="publishBlog()">Publish</button>
+              <button class="draft" onclick="saveDraft()">Draft</button>
+              <button class="removedraft draft" onclick="removeDraft()">
+                Remove Draft
+              </button>
+            </div>
+          </div>
+          <div class="title" contenteditable="true" id="blogTitle"></div>
+          <div id="editor-content" contenteditable="true"></div>
+        </div>
+        <div class="yourblog">Your Blog | Publish To See</div>
+        <div id="outer-blog-container">
+          <div id="blog-container"></div>
+        </div>
+      </section>
+
+      <!-- -------------------Rich Text Editor HTML Ends --------------- -->
+
+      <!-- --------------- Notes HTML Starts-------------------------------- -->
+      <section class="Notes" id="Noteid">
+        <h2 class="dash">
+          <i class="fa-regular fa-clipboard"></i>
+          <span class="dash-abi">Notes</span>
+        </h2>
+        <p class="descnotes" style="color: white; margin-bottom: 50px">
+          Write Down Your Ideas
+        </p>
+        <div class="Bigcontainer">
+          <div id="container">
+            <div class="add">
+              <h2 class="adddesc">Add Notes</h2>
+              <i class="fa-solid fa-plus btn addbtn"></i>
+            </div>
+            <div class="notes-container">
+              <!-- <p contenteditable="true" class="input-box">
+            <textarea id="note-text" placeholder="Enter your note..."></textarea>
+          <i class="fa-solid fa-trash delete" contenteditable="false"></i>
+          <button class="save" contenteditable="false">Save Note</button>
+        </p> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- --------------- Notes HTML Ends-------------------------------- -->
+    </main>
+
+    <footer>
+      <!-- ---------------------Contact HTML Starts -------------------- -->
+
+      <section class="contact" id="contact">
+        <h2 class="contactme">
+          <i class="fa-solid fa-headset"></i>
+          <span
+            style="color: white; position: relative; left: 10px; bottom: 10px"
+            >Contact</span
+          >
+          <span class="me" style="position: relative; left: 15px; bottom: 10px">
+            Me</span
+          >
+        </h2>
+
+        <div class="ContactForm">
+          <p>Fill The Form For Any Inquiries</p>
+          <div class="Form">
+            <form>
+              <input
+                type="text"
+                id="fname"
+                name="firstname"
+                placeholder="Your First Name.."
+                class="form-box"
+              />
+
+              <input
+                type="text"
+                id="lname"
+                name="lastname"
+                placeholder="Your last name.."
+                class="form-box"
+              />
+
+              <input
+                type="email"
+                id="lemail"
+                name="Email"
+                placeholder="Your Email"
+                class="form-box"
+              />
+
+              <textarea
+                id="subject"
+                name="subject"
+                placeholder="Your Message"
+                style="height: 200px"
+                class="form-box"
+              ></textarea>
+
+              <input type="submit" value="Submit" class="btn submit" />
+              <label for="submit"></label>
+            </form>
+          </div>
+          <div class="contact-info">
+            <div class="emailid">
+              <i class="fa-brands fa-telegram telegram"></i>
+              <span
+                style="
+                  position: relative;
+                  left: 10px;
+                  bottom: 8px;
+                  font-size: 23px;
+                "
+                >Contact@gmail.com</span
+              >
+            </div>
+            <div class="phone">
+              <i class="fa-solid fa-phone phoneicon"></i>
+              <span
+                style="
+                  position: relative;
+                  left: 10px;
+                  bottom: 8px;
+                  font-size: 23px;
+                "
+                >+91 6290-XXXX-XX</span
+              >
+            </div>
+            <div class="contact-icons">
+              <a
+                href="https://www.linkedin.com/in/sayantan-halder-1b8890318/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="https://github.com/Sayantan699" target="_blank"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a href="https://x.com/Sayantan699" target="_blank"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+              <a href="https://www.instagram.com/sayantan_1005/" target="_blank"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="up">
+            <a href="#Welcomeblog" style="text-decoration: none"
+              ><div class="up-box">
+                <i class="fa-solid fa-angle-up up-icon"></i></div
+            ></a>
+          </div>
+        </div>
+
+        <hr style="background-color: white" />
+        <div class="greetings">
+          <p>
+            Copyright&copy; Sayantan. Made with
+            <span style="color: #8e44ad"
+              ><i class="fa-solid fa-heart"></i
+            ></span>
+            by Sayantan Halder.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------------------Contact HTML Ends -------------------- -->
+    </footer>
+    <script src="./first.js"></script>
+  </body>
+</html>
